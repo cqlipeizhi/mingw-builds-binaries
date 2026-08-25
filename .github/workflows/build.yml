@@ -28,7 +28,7 @@ jobs:
     - uses: actions/checkout@v6
       with:
         repository: 'cqlipeizhi/mingw-builds'
-        ref: 'dev-lpz'
+        ref: 'dev-lpz-sjlj'
 
     - uses: msys2/setup-msys2@v2
       with:
@@ -70,22 +70,22 @@ jobs:
       fail-fast: false
       matrix:
         arch: [x86_64, i686]
-        threads: [posix, win32, mcf]
-        exceptions: [seh, dwarf]
+        threads: [posix, win32]
+        exceptions: [seh, dwarf, sjlj]
         msvcrt: [msvcrt, ucrt]
         exclude:
           - arch: x86_64
             exceptions: dwarf
           - arch: i686
             exceptions: seh
-          - threads: mcf
-            msvcrt: msvcrt
+          - exceptions: mcf
+            msvcrt: ucrt
 
     steps:
     - uses: actions/checkout@v6
       with:
         repository: 'cqlipeizhi/mingw-builds'
-        ref: 'dev-lpz'
+        ref: 'dev-lpz-sjlj'
 
     - uses: msys2/setup-msys2@v2
       with:
