@@ -78,7 +78,7 @@ jobs:
             exceptions: dwarf
           - arch: i686
             exceptions: seh
-          - exceptions: mcf
+          - exceptions: sjlj
             msvcrt: ucrt
 
     steps:
