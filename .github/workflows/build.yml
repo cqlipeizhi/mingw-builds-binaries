@@ -44,7 +44,7 @@ jobs:
         --rev=${{ needs.split-tag.outputs.mingw-rev }}
         --with-default-msvcrt=ucrt
         --rt-version=${{ needs.split-tag.outputs.rt-version }}
-        --threads=mcf
+        --threads=posix
         --exceptions=seh
         --arch=x86_64
         --bin-compress
