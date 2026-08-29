@@ -108,6 +108,7 @@ jobs:
         --enable-languages=c,c++,fortran
         --logviewer-command=cat
         --no-bootstrap
+        --bootstrapall
 
     - name: Upload
       uses: actions/upload-artifact@v7
