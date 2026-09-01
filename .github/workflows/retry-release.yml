@@ -3,8 +3,8 @@ name: Retry Release from Existing Artifacts
 on:
   workflow_dispatch:
     inputs:                 # 定义输入参数
-      run-id:          # 运行 ID
-        description: 'gcc版本'
+      run-id:          # 运行ID
+        description: '运行ID'
         required: true
         type: string        # 参数类型：字符串
       tag:
