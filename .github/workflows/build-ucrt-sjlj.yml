@@ -107,9 +107,6 @@ jobs:
         --bin-compress
         --enable-languages=c,c++,fortran
         --logviewer-command=cat
-        --no-bootstrap
-        --bootstrapall
-        --no-gcc-lto
 
     - name: Upload
       uses: actions/upload-artifact@v7
