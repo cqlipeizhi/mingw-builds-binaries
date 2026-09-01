@@ -1,0 +1,33 @@
+name: Retry Release from Existing Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:                 # 定义输入参数
+      run-id:          # 运行 ID
+        description: 'gcc版本'
+        required: true
+        type: string        # 参数类型：字符串
+      tag:
+        description: '要发布的标签名'
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v8
+      with:
+        pattern: "bin-*"
+        path: ./
+        merge-multiple: true
+        run-id: ${{ inputs.run-id }}
+
+    - name: Upload to Release
+      id: upload_to_release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag-name: ${{ inputs.tag }}
+        files: "*.7z"
