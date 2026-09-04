@@ -48,7 +48,7 @@ jobs:
         --exceptions=seh
         --arch=x86_64
         --bin-compress
-        --enable-languages=c,c++,fortran
+        --enable-languages=ada,c,c++,fortran,objc,obj-c++
         --logviewer-command=cat
         --fetch-only
 
@@ -113,7 +113,7 @@ jobs:
         --exceptions=${{ matrix.exceptions }}
         --arch=${{ matrix.arch }}
         --bin-compress
-        --enable-languages=c,c++,fortran
+        --enable-languages=ada,c,c++,fortran,objc,obj-c++
         --logviewer-command=cat
 
     - name: Upload
